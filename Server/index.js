@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const authRoutes = require("./routes/Auth.route")
+const authRoutes = require("./routes/Auth.route");
+const userRoutes = require("./routes/User.route");
 
 const app = express();
 const PORT = 5500;
@@ -21,4 +22,5 @@ app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}!!`);
 });
 
-app.use("/server/auth", authRoutes)
+app.use("/server/auth", authRoutes);
+app.use("/server/user", userRoutes);
