@@ -6,6 +6,7 @@ import Signin from "./Pages/Signin";
 import { Provider } from "react-redux"; // Import Provider
 import { store } from "./redux/store"; // Import your Redux store
 import Header from "./components/Header";
+import AddNewProduct from "./Pages/AddNewProduct";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
+          <Route path="/Add_New_Product" element={<AddNewProduct />} />
         </Routes>
       </BrowserRouter>
     </div>
