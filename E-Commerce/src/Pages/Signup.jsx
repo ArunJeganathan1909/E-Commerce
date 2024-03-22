@@ -15,7 +15,12 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.username || !formData.email || !formData.password) {
+    if (
+      !formData.username ||
+      !formData.email ||
+      !formData.password ||
+      !formData.mobile
+    ) {
       return setErrorMessage("Please fill out all fields");
     }
 
@@ -69,6 +74,15 @@ const Signup = () => {
                 type="email"
                 placeholder="Email"
                 id="email"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="">
+              <Label value="Your mobile number" />
+              <TextInput
+                type="mobile"
+                placeholder="Mobile"
+                id="mobile"
                 onChange={handleChange}
               />
             </div>

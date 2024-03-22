@@ -29,9 +29,11 @@ const UserSchema = new Schema(
     },
     role: {
       type: String,
+      default: "User",
     },
     mobile: {
       type: String,
+      required: true,
     },
   },
   {
@@ -39,6 +41,6 @@ const UserSchema = new Schema(
   }
 );
 
-const UserModel = mongoose.model("User", UserSchema)
+const UserModel = mongoose.model("User", UserSchema);
 
-module.exports = UserModel
+module.exports = UserModel;

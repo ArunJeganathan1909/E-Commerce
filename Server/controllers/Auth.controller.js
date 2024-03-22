@@ -6,15 +6,17 @@ const bcrypt = require("bcryptjs");
 const bcryptSalt = 10;
 
 const signup = async (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, mobile } = req.body;
 
   if (
     !username ||
     !email ||
     !password ||
+    !mobile ||
     username === "" ||
     email === "" ||
-    password === ""
+    password === "" ||
+    mobile === ""
   ) {
     next(errorHandler(400, "All fields are required"));
   }

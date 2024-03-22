@@ -86,14 +86,14 @@ const Signin = () => {
                   <span className="pl-3">Loading...</span>
                 </>
               ) : (
-                "Sign Up"
+                "Sign In"
               )}
             </Button>
           </form>
           <div className="flex gap-2 text-sm mt-5">
-            <span>Have an account?</span>
+            <span>Don't have an account?</span>
             <Link to="/signup" className="text-blue-500">
-              Sign Out
+              Sign Up
             </Link>
           </div>
           {errorMessage && (
