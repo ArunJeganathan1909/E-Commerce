@@ -4,6 +4,6 @@ const { signout } = require("../controllers/User.controller");
 
 const router = express.Router();
 
-router.get("/signout", signout);
+router.post("/signout", signout);
 
 module.exports = router;

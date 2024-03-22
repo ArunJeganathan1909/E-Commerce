@@ -101,7 +101,7 @@ const Header = () => {
                 {currentUser.email}
               </span>
             </Dropdown.Header>
-            <Link>
+            <Link to={"/dashboard?tab=profile"}>
               <Dropdown.Item>Profile</Dropdown.Item>
             </Link>
             <Dropdown.Divider />
@@ -117,13 +117,13 @@ const Header = () => {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link as={"div"}>
+        <Navbar.Link active={path === "/"} as={"div"}>
           <Link>Home</Link>
         </Navbar.Link>
-        <Navbar.Link as={"div"}>
+        <Navbar.Link active={path === "/chats"} as={"div"}>
           <Link>Chats</Link>
         </Navbar.Link>
-        <Navbar.Link as={"div"}>
+        <Navbar.Link active={path === "/orders"} as={"div"}>
           <Link>Orders</Link>
         </Navbar.Link>
       </Navbar.Collapse>
