@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/Auth.route");
 const userRoutes = require("./routes/User.route");
 const productRoutes = require("./routes/Product.route");
+const cartRoutes = require("./routes/Cart.route");
 
 const app = express();
 const PORT = 5500;
@@ -26,3 +27,4 @@ app.listen(PORT, () => {
 app.use("/server/auth", authRoutes);
 app.use("/server/user", userRoutes);
 app.use("/server/product", productRoutes);
+app.use("/server/cart", cartRoutes);

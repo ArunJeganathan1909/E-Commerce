@@ -5,7 +5,7 @@ const ProductSchema = new Schema(
   {
     userId: {
       type: String,
-      required: true, // Changed from 'require' to 'required'
+      required: true, 
     },
     title: {
       type: String,
