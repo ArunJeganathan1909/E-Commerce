@@ -100,7 +100,7 @@ const AddNewProduct = () => {
       }
       if (res.ok) {
         setPublishError(null);
-        //navigate(`/post/${data.slug}`);
+        navigate(`/product/${data.slug}`);
       }
     } catch (error) {
       setPublishError("Something went wrong");
@@ -181,7 +181,7 @@ const AddNewProduct = () => {
           placeholder="Add description...."
           className="h-72 mb-12"
           required
-          onChange={(value) => setFormData({ ...formData, content: value })}
+          onChange={(value) => setFormData({ ...formData, description: value })}
         />
         <Button type="submit" gradientDuoTone="purpleToPink">
           Publish

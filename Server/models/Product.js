@@ -5,7 +5,7 @@ const ProductSchema = new Schema(
   {
     userId: {
       type: String,
-      required: true, 
+      required: true,
     },
     title: {
       type: String,
@@ -24,6 +24,10 @@ const ProductSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+    },
+    price: {
+      type: Number,
+      required: true,
     },
   },
   { timestamps: true }

@@ -4,6 +4,7 @@ const authRoutes = require("./routes/Auth.route");
 const userRoutes = require("./routes/User.route");
 const productRoutes = require("./routes/Product.route");
 const cartRoutes = require("./routes/Cart.route");
+const orderRoutes = require("./routes/Order.route");
 const cookieParser = require("cookie-parser");
 
 const app = express();
@@ -31,3 +32,4 @@ app.use("/server/auth", authRoutes);
 app.use("/server/user", userRoutes);
 app.use("/server/product", productRoutes);
 app.use("/server/cart", cartRoutes);
+app.use("/server/order", orderRoutes);

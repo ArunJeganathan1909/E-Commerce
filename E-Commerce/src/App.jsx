@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import AddNewProduct from "./Pages/AddNewProduct";
 import PrivateRoute from "./components/PrivateRoute";
 import Dashboard from "./Pages/Dashboard";
+import Home from "./Pages/Home";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/Add_New_Product" element={<AddNewProduct />} />
