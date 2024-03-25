@@ -34,4 +34,67 @@ const addToCart = async (req, res, next) => {
   }
 };
 
-module.exports = { addToCart };
+const getCarts = async (req, res, next) => {
+  const userId = req.params.userId; // Assuming the userId is passed as a URL parameter
+
+  try {
+    // Retrieve cart items for the given user ID
+    const cartItems = await Cart.find({ userId }).populate("productId");
+
+    // Respond with the cart items
+    res.status(200).json({ success: true, cartItems });
+  } catch (error) {
+    // Handle any errors that occur during the process
+    next(errorHandler(500, "Failed to fetch user's cart items"));
+  }
+};
+
+const removeFromCart = async (req, res, next) => {
+  const userId = req.params.userId;
+  const productId = req.params.productId; // Assuming productId is passed as a URL parameter
+
+  try {
+    // Find the cart item to remove
+    const cartItem = await Cart.findOne({ userId, productId });
+    if (!cartItem) {
+      return next(errorHandler(404, "Cart item not found"));
+    }
+
+    // Remove the cart item
+    await cartItem.remove();
+
+    // Respond with success message
+    res
+      .status(200)
+      .json({ success: true, message: "Cart item removed successfully" });
+  } catch (error) {
+    // Handle any errors that occur during the process
+    next(errorHandler(500, "Failed to remove cart item"));
+  }
+};
+
+const updateCart = async (req, res, next) => {
+  const userId = req.params.userId;
+  const productId = req.params.productId; // Assuming productId is passed as a URL parameter
+  const { quantity } = req.body;
+
+  try {
+    // Find the cart item to update
+    const cartItem = await Cart.findOne({ userId, productId });
+    if (!cartItem) {
+      return next(errorHandler(404, "Cart item not found"));
+    }
+
+    // Update the quantity
+    cartItem.quantity = quantity;
+    await cartItem.save();
+
+    // Respond with the updated cart item
+    res.status(200).json({ success: true, cartItem });
+  } catch (error) {
+    // Handle any errors that occur during the process
+    next(errorHandler(500, "Failed to update cart item"));
+  }
+};
+
+module.exports = { addToCart, getCarts, removeFromCart, updateCart };
