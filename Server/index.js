@@ -4,6 +4,7 @@ const authRoutes = require("./routes/Auth.route");
 const userRoutes = require("./routes/User.route");
 const productRoutes = require("./routes/Product.route");
 const cartRoutes = require("./routes/Cart.route");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const PORT = 5500;
@@ -20,6 +21,8 @@ mongoose
   });
 
 app.use(express.json());
+app.use(cookieParser());
+
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}!!`);
 });
